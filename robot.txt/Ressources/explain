@@ -1,0 +1,27 @@
+We find the robots.txt pages and we have two things:
+
+User-agent: *
+Disallow: /whatever
+Disallow: /.hidden
+
+We go check the whatever page, and we find one file "htpasswd".
+
+He have this:
+root:437394baff5aa33daa618be47b75cb49
+
+Ok it's look's like a password hash so let's try tool to crack password.
+We can use john but also a simple online tool like https://crackstation.net/
+
+437394baff5aa33daa618be47b75cb49 -> md5 -> qwerty123@
+
+So now we have and id and a password:
+root
+qwerty123@
+
+Let's try them on sign in page.
+Not working on sign in page on main page.
+We find the /admin/ page so let's try on him.
+
+Yes they works ! 
+
+The flag is : d19b4823e0d5600ceed56d5e896ef328d7a2b9e7ac7e80f4fcdb9b10bcb3e7ff

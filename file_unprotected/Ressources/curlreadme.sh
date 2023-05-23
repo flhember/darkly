@@ -95,7 +95,7 @@ do
 
 				for var3 in ${tab3[*]};
 				do
-					curl -f "http://192.168.56.105/.hidden/"$var1$var2$var3"README"
+					curl -f "http://192.168.56.104/.hidden/"$var1$var2$var3"README"
 				done
 		done
 done

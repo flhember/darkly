@@ -1,13 +1,12 @@
-We find the robots.txt pages and we have two things:
+We find the /robots.txt pages and we have two things:
 
 User-agent: *
 Disallow: /whatever
 Disallow: /.hidden
 
-When we look up the .hidden link we find a lot of directory.
+When we look up the /.hidden link we find a lot of directory.
 For each directory we have a readme file.
-So for check all, we write a litte bash script with curl.
-With the of pattern of directory is eazy to loop with all of readme.
+To check everything, we write a bash script with curl.
+With the pattern of directory it's easy to get all the readme.
 
-And we find a flag!
-Hey, here is your flag : d5eec3ec36cf80dce44a896f961c1831a05526ec215693c8f2c39543497d4466.
+Done

@@ -1,8 +1,10 @@
 We find a web page clicking on '© BornToSec' at the end of the home page
-Reading at the html with the web tool we find a comment with some usefull informations
+In the html we find a comment with some usefull informations
 `You must come from : "https://www.nsa.gov/".`
 `Let's use this browser : "ft_bornToSec". It will help you a lot.
+We look for the value that give those informations in the header
+We use the software Burp to edit the header
 referer: https://www.nsa.gov/
 user-Agent: ft_bornToSec
 
-Done we have the flag
+Done

@@ -1,1 +1,3 @@
-Just feedback with name and comment inf to size 1 
+On the page /?page=feedback
+Some single letters in the name input trigger the flag (ertipaslc)
+Anagram of PARTICLES

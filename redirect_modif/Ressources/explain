@@ -1,9 +1,9 @@
 When we look the source code of any page we see in footer
-3 redirection with variable like:
+3 redirection link with variable like:
 index.php?page=redirect&site=instagram
 
-It seems strange to us that there are no hard links so we
-ecide to test with random var like
+It seems strange to us that the links are not hardcoded so we
+decide to test with random var like
 index.php?page=redirect&site=deded
 
-Noe we have a flag!
+Done

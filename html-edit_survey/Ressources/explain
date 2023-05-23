@@ -1,6 +1,7 @@
-page -> /?page=survey
-inspect the grade select element
+we are on the survey page /?page=survey
+inspect the grade select element in the tab
 edit the value of one the grade with a number >10
-select it to POST
+select it on the page to POST
+
 Done
 

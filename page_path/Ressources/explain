@@ -1,7 +1,8 @@
 Most page are indexed with ?page=<name> in the uri
-When we try to change <name> we get a 'WTF ?' alert from the server
-Just after putting '../../' the message WTF change for 'WRONG..'
+When we try to change <name> with a non existing page we get a 'WTF ?' alert from the server
+Just after putting '../../' as name the message WTF change for 'WRONG..'
 Seems wird so i continue to go deeper back
 After going deep back we get always the same message 'You can DO it !!!  :]'
 Didn't search a lot before trying '/etc/passwd'
+
 Done

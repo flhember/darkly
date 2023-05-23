@@ -89,13 +89,12 @@ tab3=(
 
 for var1 in ${tab1[*]};
 do
+	for var2 in ${tab2[*]};
+	do
 
-		for var2 in ${tab2[*]};
+		for var3 in ${tab3[*]};
 		do
-
-				for var3 in ${tab3[*]};
-				do
-					curl -f "http://192.168.56.104/.hidden/"$var1$var2$var3"README"
-				done
+			curl -f "http://$1/.hidden/"$var1$var2$var3"README"
 		done
+	done
 done

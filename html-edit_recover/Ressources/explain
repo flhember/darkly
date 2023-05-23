@@ -1,0 +1,7 @@
+We are on the recover password page /?page=recover
+We have one buton submit but no field to put our email.
+So we decide to inspect the html.
+We find an hidden input already filled with 'webmaster@borntosec.com'.
+let's try to change it with anythings.
+
+Done

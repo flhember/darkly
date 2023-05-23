@@ -8,5 +8,6 @@ When we look up the /.hidden link we find a lot of directory.
 For each directory we have a readme file.
 To check everything, we write a bash script with curl.
 With the pattern of directory it's easy to get all the readme.
+We get the flag in one of them
 
 Done
